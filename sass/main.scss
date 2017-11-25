@@ -1,0 +1,13 @@
+@import "var";
+@import "mixins";
+@import "color";
+@import "custom-bootstrap";
+@import "perfil-usuario";
+@import "navbar";
+@import "card-deck";
+@import "modal";
+@import "jumbotron";
+
+body {
+  background-color: $bg-color-2;
+}

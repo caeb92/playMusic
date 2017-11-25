@@ -1,0 +1,1 @@
+function RevisarFormulario(){0===$(user).val().trim().length?(document.getElementById("error").style.display="block",document.getElementById("error").innerHTML="Debes ingresar tu Usuario !!"):document.getElementById("error").style.display="none"}
