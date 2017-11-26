@@ -44,7 +44,7 @@
         <div class="mx-auto text-center">
           <img class="rounded-circle mx-auto" src="build/img/user.png" alt="Foto de Usuario">
         </div>
-        <form action="valida.php" method="POST"><!-- ../php/DATA-->
+        <form name="frmInicioSesion" action="valida.php" method="POST"><!-- ../php/DATA-->
           <div id="error" class="alert alert-danger" role="alert"></div>
           <div class="form-group">
             <label for="user_ui">Usuario</label>

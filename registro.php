@@ -1,3 +1,22 @@
+<?php
+  if( isset($_POST['submit']) )
+  {
+    $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
+    if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
+
+    $user_name_ui = $_POST['user_name_ui'];
+    $password_ui = $_POST['password_ui'];
+    $nombre_ui = $_POST['nombre_ui'];
+    $imagen = $_FILES['imagen']['name'];
+
+    $sql = "INSERT INTO USUARIO VALUES (null,'$user_name_ui','$password_ui','$nombre_ui','$imagen','usuario')";
+    $agregar = $mysqli->query($sql);
+    if($agregar)
+    {
+      move_uploaded_file($_FILES['imagen']['tmp_name'],"img/".$_FILES['imagen']['name']);
+    }
+  }
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,7 +40,7 @@
     ?>
 
     <div class="container">
-      <form class="" action="crear_usuario.php" method="POST">
+      <form name="frm" action="registro.php" method="POST" enctype="multipart/form-data">
 
         <div class="form-group">
           <label for="user_name_ui">Nombre de Usuario</label>
@@ -29,24 +48,25 @@
         </div>
 
         <div class="form-group">
-          <label for="email_ui">Dirección de Correo</label>
-          <input type="email" class="form-control" id="email_ui" name="email_ui" aria-describedby="emailHelp" placeholder="Ingresa tu correo">
-          <small id="emailHelp" class="form-text text-muted">No compartiremos tu correo con nadie.</small>
-        </div>
-
-        <div class="form-group">
           <label for="password_ui">Contraseña</label>
-          <input type="password" class="form-control" id="password_ui" name="password_ui" placeholder="Ingresa tu Contraseña">
+          <input type="password" class="form-control" id="password_ui" name="password_ui" placeholder="Ingresa tu Contraseña" onblur="RevisarPW()">
         </div>
 
         <div class="form-group">
           <label for="password_ui_2">Repite tu Contraseña</label>
-          <input type="password" class="form-control" id="password_ui_2" name="password_ui_2" placeholder="Repite tu Contraseña">
+          <input type="password" class="form-control" id="password_ui_2" name="password_ui_2" placeholder="Repite tu Contraseña" onblur="RevisarPW()">
+        </div>
+
+        <div id="errorPW" class="alert alert-danger" role="alert"></div>
+
+        <div class="form-group">
+          <label for="nombre_ui">Ingresa tu nombre completo</label>
+          <input type="text" class="form-control" id="nombre_ui" name="nombre_ui" placeholder="Ingresa tu nombre completo">
         </div>
 
         <div class="form-group">
-          <label for="user_ui">Tu nombre</label>
-          <input type="text" class="form-control" id="user_ui" name="user_ui" placeholder="Tu nombre">
+          <label class="label" for="imagen">Foto de perfil</label> <br>
+          <input type="file" name="imagen" id="imagen" />
         </div>
 
         <button type="submit" name="submit" class="btn btn-outline-primary pull-right">Aceptar</button>
@@ -57,6 +77,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="js/minify/bootstrap.min.js" type="text/javascript"></script>
-    <script src="js/minify/main.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
   </body>
 </html>

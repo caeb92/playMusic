@@ -112,7 +112,7 @@ nav {
   .modal-body .buttons-modal .btn-outline-warning:hover i {
     color: #F8F8F8; }
 
-.alert {
+.alert-danger {
   display: none; }
 
 .modal-content {
