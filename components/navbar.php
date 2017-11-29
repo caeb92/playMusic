@@ -8,13 +8,10 @@
   <div class="collapse navbar-collapse"  id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Juegos</a>
+        <a class="nav-link" href="registro.php">Crear Una Cuenta</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Consolas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Otros</a>
+        <a class="nav-link" href="#">Ultimas Bandas</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 pull-right">

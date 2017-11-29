@@ -1,0 +1,14 @@
+.datos-banda{
+  margin-bottom: 80px;
+  .img-banda{
+    @include sombras( 0px 2px 14px -4px );
+    height: 180px;
+    border-radius: 3px;
+    margin-bottom: 24px;
+  }
+  .img-disco{
+    @include sombras( 0px 3px 10px -4px );
+    height: 180px;
+    border-radius: 3px;
+  }
+}

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif|Poppins" >
   </head>
-  <body style="background-color:black;">
+  <body>
 
     <?php include ("components/navbar.php") ?>
     <?php include ("components/jumbotron.php") ?>
@@ -21,6 +21,14 @@
         echo $_GET['msg'];
       }
     ?>
+
+    <div class="container">
+      <h3>Ultima banda Agregada</h3>
+      <hr>
+      <br>
+      <?php include ("ultima_banda.php") ?>
+    </div>
+
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
