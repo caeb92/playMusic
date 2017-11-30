@@ -11,24 +11,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif|Poppins" >
   </head>
   <body>
-
+    <!-- Componente NavBar -->
     <?php include ("components/navbar.php") ?>
+    <!-- Componente Jumbotron -->
     <?php include ("components/jumbotron.php") ?>
-
+    <!-- Error de sesion, mensajes de error -->
     <?php
       if(isset ($_GET['msg']))
       {
         echo $_GET['msg'];
       }
     ?>
-
-    <div class="container">
+    <!-- Componente Bandas -->
+    <div class="container animated fadeIn">
       <h3>Ultima banda Agregada</h3>
       <hr>
       <br>
-      <?php include ("ultima_banda.php") ?>
+      <?php include ("components/ultima_banda.php") ?>
     </div>
 
+      <p>En las canciones agrega una url del video de youtube!!</p>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

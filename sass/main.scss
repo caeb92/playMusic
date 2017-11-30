@@ -8,7 +8,12 @@
 @import "modal";
 @import "jumbotron";
 @import "ultimas-bandas";
+@import "animaciones";
+@import "tarjeta";
 
 body {
   background-color: $bg-color-2;
+}
+hr{
+  margin-bottom: 32px;
 }

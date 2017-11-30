@@ -7,9 +7,19 @@
 
   <div class="collapse navbar-collapse"  id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+
       <li class="nav-item">
-        <a class="nav-link" href="mantenedor.php">Mantenedor</a>
+        <a class="nav-link" href="mantenedor_artista.php">Mantenedor Artista</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="mantenedor.php">Mantenedor Album</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="mantenedor.php">Mantenedor Cancion</a>
+      </li>
+
     </ul>
     <form class="form-inline my-2 my-lg-0 pull-right">
       <ul class="navbar-nav flex-row mr-lg-0">

@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light animated fadeIn">
   <a class="navbar-brand Logo" href="index.php"><i class="fa fa-music fa-lg" aria-hidden="true" style="color:#1E88E5;"></i>PlayMusic</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -29,8 +29,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif|Poppins" >
   </head>
-  <body>
-    <?php include ("components/navbar.php") ?>
+  <body style="background-color:black;">
+    <?php include_once ("components/navbar-admin.php") ?>
 
     <?php
       if(isset ($_GET['msg']))
@@ -41,46 +41,33 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-5 TARJETA-FRM">
-          <h4>Crear una cuenta</h4>
+        <div class="col-md-6 TARJETA-FRM">
+          <h3>Agregar Banda</h3>
           <hr>
-
-          <form name="frm" action="registro.php" method="POST" enctype="multipart/form-data">
+          <form name="frmMantArtista" action="mantenedor_artista.php" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
-              <label for="user_name_ui">Nombre de Usuario</label>
-              <input type="text" class="form-control" id="user_name_ui" name="user_name_ui" placeholder="Nombre de Usuario">
+              <label for="nombre_banda">Nombre de la banda</label>
+              <input type="text" class="form-control" id="nombre_banda" name="nombre_banda" placeholder="Nombre de la Banda">
             </div>
 
             <div class="form-group">
-              <label for="password_ui">Contraseña</label>
-              <input type="password" class="form-control" id="password_ui" name="password_ui" placeholder="Ingresa tu Contraseña" onblur="RevisarPW()">
+              <label for="genero_musical">Genero Musical</label>
+              <input type="text" class="form-control" id="genero_musical" name="genero_musical" placeholder="Genero Musical">
             </div>
 
             <div class="form-group">
-              <label for="password_ui_2">Repite tu Contraseña</label>
-              <input type="password" class="form-control" id="password_ui_2" name="password_ui_2" placeholder="Repite tu Contraseña" onblur="RevisarPW()">
-            </div>
-
-            <div id="errorPW" class="alert alert-danger" role="alert"></div>
-
-            <div class="form-group">
-              <label for="nombre_ui">Ingresa tu nombre completo</label>
-              <input type="text" class="form-control" id="nombre_ui" name="nombre_ui" placeholder="Ingresa tu nombre completo">
-            </div>
-
-            <div class="form-group">
-              <label class="label" for="imagen">Foto de perfil</label> <br>
+              <label class="label" for="imagen">Foto de la banda</label> <br>
               <input type="file" name="imagen" id="imagen" />
             </div>
 
-            <button type="submit" name="submit" class="btn btn-outline-primary pull-right">Aceptar</button>
+            <button type="submit" name="submit" class="btn btn-outline-success pull-right">Guardar</button>
 
-            <br> <br>
           </form>
         </div>
-        <div class="col-md-7">
 
+        <div class="col-md-6 text-center">
+          <img src="img/srv.jpeg" alt="Foto Artista">
         </div>
       </div>
     </div>
