@@ -13,15 +13,15 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="mantenedor_artista.php">Mantenedor Artista</a>
+        <a class="nav-link" href="mantenedor_artista.php">Mantenedor Bandas</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="mantenedor_album.php">Mantenedor Album</a>
+        <a class="nav-link" href="mantenedor_album.php">Mantenedor Albums</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="mantenedor_artista.php">Mantenedor Cancion</a>
+        <a class="nav-link" href="mantenedor_cancion.php">Mantenedor Canciones</a>
       </li>
 
     </ul>

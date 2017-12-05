@@ -45,7 +45,7 @@
           <h4>Crear una cuenta</h4>
           <hr>
 
-          <form name="frm" action="registro.php" method="POST" enctype="multipart/form-data">
+          <form name="frm" action="registro.php" method="POST" enctype="multipart/form-data"  onSubmit="return RevisarCrearCuenta();">
 
             <div class="form-group">
               <label for="user_name_ui">Nombre de Usuario</label>

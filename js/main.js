@@ -70,12 +70,42 @@ function RevisarPW()
   {
     document.getElementById('errorPW').style.display="block";
     document.getElementById('errorPW').innerHTML="Las contraseñas no coinciden !";
-    return false;
   }
   else
   {
     document.getElementById('errorPW').style.display="none";
     document.getElementById("BarraSeguridad").style.width = "100%";
     document.getElementById("ok_2").style.color = "green";
+  }
+}
+
+function RevisarCrearCuenta(){
+  // Validar campos vacios
+  if(frm.user_name_ui.value.length === 0)
+  {
+    alert("Ingresa tu nombre de usuario");
+    user_name_ui.focus();
+    return false;
+  }
+  if(frm.password_ui.value.length === 0)
+  {
+    alert("Ingresa tu contraseña");
+    password_ui.focus();
+    return false;
+  }
+  if(frm.nombre_ui.value.length === 0)
+  {
+    alert("Ingresa tu nombre completo");
+    nombre_ui.focus();
+    return false;
+  }
+  if(frm.imagen.files.length === 0)
+  {
+    alert("Selecciona una foto de perfil");
+    return false;
+  }
+  if(frm.password_ui.value != frm.password_ui_2.value)
+  {
+    return false;
   }
 }

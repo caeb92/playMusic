@@ -23,7 +23,7 @@ while ( $registro = $resultado->fetch_array() )
     <h4>Ultima Cancion Agregada</h4>
     <h5><?php echo $registro['NOMBRE_CANCION']; ?></h5>
     <audio controls="controls" id="audio_player">
-      <source src="<?php echo $registro['RUTA_CANCION']; ?>" type="audio/mp3" />
+      <source src="audio/<?php echo $registro['RUTA_CANCION']; ?>" type="audio/mp3" />
     </audio>
   </div>
 </div>

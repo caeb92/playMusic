@@ -58,18 +58,33 @@
           <h6>Usuario: <?php echo $registro['user']; ?></h5>
           <a data-toggle="modal" data-target="#exampleModal">Cambiar Contraseña</a>
         </div>
+        <?php
+           }
+        ?>
 
         <div class="col-md-8">
           <h5>Bandas que has agregado</h5>
+          <hr>
+            <?php
+               $sql = "SELECT * FROM ARTISTA ";
+               $resultado = $mysqli->query($sql);
+               while ( $registro = $resultado->fetch_array() )
+               {
+            ?>
+            <h6> <?php echo $registro['NOMBRE_AR']; ?></h6>
+            <h6> <?php echo $registro['GENERO']; ?></h6>
+            <img src="img/bandas/<?php echo $registro['FOTO_AR']; ?>">
+            <br> <hr>
+            <?php
+               }
+            ?>
           <hr>
           <h5>Discos que has agregado</h5>
           <hr>
           <h5>Canciones que has agregado</h5>
         </div>
 
-        <?php
-           }
-        ?>
+
       </div>
     </div>
 
