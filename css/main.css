@@ -180,6 +180,8 @@ nav {
   padding-top: 24px;
   padding-left: 48px;
   padding-right: 48px; }
+  .TARJETA-FRM .btn {
+    margin-bottom: 24px; }
 
 body {
   background-color: #F8F8F8; }

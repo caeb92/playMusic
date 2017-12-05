@@ -9,15 +9,19 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item">
+        <a class="nav-link" href="perfil.php">Mi perfil</a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link" href="mantenedor_artista.php">Mantenedor Artista</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="mantenedor.php">Mantenedor Album</a>
+        <a class="nav-link" href="mantenedor_album.php">Mantenedor Album</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="mantenedor.php">Mantenedor Cancion</a>
+        <a class="nav-link" href="mantenedor_artista.php">Mantenedor Cancion</a>
       </li>
 
     </ul>
@@ -25,9 +29,6 @@
       <ul class="navbar-nav flex-row mr-lg-0">
         <li class="nav-item">
           <a href="cerrar_sesion.php"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="modal" data-target="#ModalBuscar"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a>
         </li>
       </ul>
     </form>

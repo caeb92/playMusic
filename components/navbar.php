@@ -10,17 +10,11 @@
       <li class="nav-item">
         <a class="nav-link" href="registro.php">Crear Una Cuenta</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Ultimas Bandas</a>
-      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 pull-right">
       <ul class="navbar-nav flex-row mr-lg-0">
         <li class="nav-item">
           <a data-toggle="modal" data-target="#exampleModal"><i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i></a>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="modal" data-target="#ModalBuscar"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a>
         </li>
       </ul>
     </form>
@@ -59,22 +53,6 @@
           </div>
         </form>
 
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Buscar-->
-<div class="modal fade Modal-Buscar" id="ModalBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="input-group buttons-modal">
-          <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar...">
-          <span class="input-group-btn">
-            <button class="btn btn-outline-warning" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </span>
-        </div>
       </div>
     </div>
   </div>

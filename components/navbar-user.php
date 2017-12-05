@@ -8,22 +8,16 @@
   <div class="collapse navbar-collapse"  id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Juegos</a>
+        <a class="nav-link" href="perfil.php">Mi Perfil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Consolas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Otros</a>
+        <a class="nav-link" href="musica.php">Musica</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 pull-right">
       <ul class="navbar-nav flex-row mr-lg-0">
         <li class="nav-item">
           <a href="cerrar_sesion.php"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="modal" data-target="#ModalBuscar"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a>
         </li>
       </ul>
     </form>

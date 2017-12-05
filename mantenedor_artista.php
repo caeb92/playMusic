@@ -1,13 +1,16 @@
 <?php
   $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
   if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
-  // Valida si es el admin, de lo contrario lo regresa al home
+  session_start();
   $nombre_usuario = $_SESSION['auth'];
-  if ($_SESSION['auth'] != 'admin')
+  if (!isset($_SESSION['auth']))
   {
-    {
-      header ('location: index.php?msg= Solo el administrador puede acceder a esta URL');
-    }
+    { header ('location: index.php?msg= Su sesión ha caducado');}
+  }
+  // Valida si es el admin, de lo contrario lo regresa al home
+  if($nombre_usuario != 'admin')
+  {
+    {header ('location: index.php?msg= Solo el administrador puede acceder a esta URL');}
   }
   // Guarda el registro de la banda
   if( isset($_POST['submit']) )
@@ -50,7 +53,7 @@
         <div class="col-md-6 TARJETA-FRM">
           <h3>Agregar Banda</h3>
           <hr>
-          <form name="frmMantArtista" action="mantenedor_artista.php" method="POST" enctype="multipart/form-data">
+          <form name="frmMantArtista" action="mantenedor_artista.php" method="POST" enctype="multipart/form-data" onSubmit="return RevisarArtista();">
 
             <div class="form-group">
               <label for="nombre_banda">Nombre de la banda</label>

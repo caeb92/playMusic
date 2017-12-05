@@ -1,7 +1,6 @@
 function RevisarFormulario()
 {
-    if($(user_ui).val().trim().length === 0)
-    if(frmInicioSesion.user_ui.value.lenght === 0)
+    if(frmInicioSesion.user_ui.value.length === 0)
     {
       document.getElementById('error').style.display="block";
       document.getElementById('error').innerHTML="Debes ingresar tu Usuario !!";
@@ -15,7 +14,42 @@ function RevisarFormulario()
 
 function RevisarArtista()
 {
+  if(frmMantArtista.nombre_banda.value.length === 0)
+  {
+    alert("Ingresa el nombre de la banda");
+    nombre_banda.focus();
+    return false;
+  }
+  if(frmMantArtista.genero_musical.value.length === 0)
+  {
+    alert("Ingresa el Genero Musical");
+    genero_musical.focus();
+    return false;
+  }
+  if(frmMantArtista.imagen.files.length === 0)
+  {
+    alert("Selecciona una foto de la Banda");
+    return false;
+  }
+}
 
+function RevisarDisco()
+{
+  if(frmMantDisco.nombre_disco.value.length === 0)
+  {
+    alert("Ingresa el nombre del disco");
+    return false;
+  }
+  if(frmMantDisco.cod_artista.value.length === 0)
+  {
+    alert("Ingresa el codigo del Artista");
+    return false;
+  }
+  if(frmMantDisco.imagen.files.length === 0)
+  {
+    alert("Selecciona una foto de la Banda");
+    return false;
+  }
 }
 
 

@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif|Poppins" >
   </head>
   <body>
+
     <!-- Componente NavBar -->
-    <?php include ("components/navbar.php") ?>
+    <?php include_once ("components/navbar.php"); ?>
     <!-- Componente Jumbotron -->
     <?php include ("components/jumbotron.php") ?>
     <!-- Error de sesion, mensajes de error -->
