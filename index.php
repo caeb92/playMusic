@@ -24,13 +24,11 @@
     ?>
     <!-- Componente Bandas -->
     <div class="container animated fadeIn">
-      <h3>Ultima banda Agregada</h3>
+      <h3>Novedades</h3>
       <hr>
       <br>
       <?php include ("components/ultima_banda.php") ?>
     </div>
-
-      <p>En las canciones agrega una url del video de youtube!!</p>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

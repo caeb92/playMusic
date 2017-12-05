@@ -15,20 +15,16 @@ while ( $registro = $resultado->fetch_array() )
     <img class="img-banda" src="img/bandas/<?php echo $registro['FOTO_AR']; ?>" alt="Imagen banda">
   </div>
 
-  <div class="col-md-9">
-    <div class="row">
+  <div class="col-md-1">
 
-      <div class="col-md-5 text-center">
-        <h4><?php echo $registro['NOMBRE_DISCO']; ?></h4>
-        <img class="img-disco" src="img/caratulas/<?php echo $registro['CARATULA_DISCO']; ?>" alt="Caratula disco">
-      </div>
+  </div>
 
-      <div class="col-md-7">
-        <h4>Canciones</h4>
-        <?php echo $registro['NOMBRE_CANCION']; ?>
-      </div>
-
-    </div>
+  <div class="col-md-8">
+    <h4>Ultima Cancion Agregada</h4>
+    <h5><?php echo $registro['NOMBRE_CANCION']; ?></h5>
+    <audio controls="controls" id="audio_player">
+      <source src="<?php echo $registro['RUTA_CANCION']; ?>" type="audio/mp3" />
+    </audio>
   </div>
 </div>
 <?php

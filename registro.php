@@ -54,12 +54,12 @@
 
             <div class="form-group">
               <label for="password_ui">Contraseña</label>
-              <input type="password" class="form-control" id="password_ui" name="password_ui" placeholder="Ingresa tu Contraseña" onblur="RevisarPW()">
+              <input type="password" class="form-control" id="password_ui" name="password_ui" placeholder="Ingresa tu Contraseña" onkeyup="RevisarPW()">
             </div>
 
             <div class="form-group">
               <label for="password_ui_2">Repite tu Contraseña</label>
-              <input type="password" class="form-control" id="password_ui_2" name="password_ui_2" placeholder="Repite tu Contraseña" onblur="RevisarPW()">
+              <input type="password" class="form-control" id="password_ui_2" name="password_ui_2" placeholder="Repite tu Contraseña" onkeyup="RevisarPW()">
             </div>
 
             <div id="errorPW" class="alert alert-danger" role="alert"></div>
@@ -79,9 +79,26 @@
             <br> <br>
           </form>
         </div>
-        <div class="col-md-7">
 
+        <div class="col-md-1">
+          <!-- Solo es un espacio-->
         </div>
+
+        <div class="col-md-4">
+          <h5>Seguridad de la contraseña</h5>
+          <br>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped" id="BarraSeguridad" role="progressbar" style="width: 0%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+
+          <br>
+
+          <ul>
+            <li id="ok_1">Contraseña mayor de 4 caracteres</li>
+            <li id="ok_2">Contraseñas coinciden</li>
+          </ul>
+        </div>
+
       </div>
     </div>
 

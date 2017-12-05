@@ -1,19 +1,26 @@
 <?php
+  $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
+  if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
+  // Valida si es el admin, de lo contrario lo regresa al home
+  $nombre_usuario = $_SESSION['auth'];
+  if ($_SESSION['auth'] != 'admin')
+  {
+    {
+      header ('location: index.php?msg= Solo el administrador puede acceder a esta URL');
+    }
+  }
+  // Guarda el registro de la banda
   if( isset($_POST['submit']) )
   {
-    $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
-    if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
+    $nombre_banda = $_POST['nombre_banda'];
+    $imagen  = $_FILES['imagen']['name'];
+    $genero_musical = $_POST['genero_musical'];
 
-    $user_name_ui = $_POST['user_name_ui'];
-    $password_ui = $_POST['password_ui'];
-    $nombre_ui = $_POST['nombre_ui'];
-    $imagen = $_FILES['imagen']['name'];
-
-    $sql = "INSERT INTO USUARIO VALUES (null,'$user_name_ui','$password_ui','$nombre_ui','$imagen','usuario')";
+    $sql = "INSERT INTO ARTISTA VALUES (null,'$nombre_banda','$imagen','$genero_musical')";
     $agregar = $mysqli->query($sql);
     if($agregar)
     {
-      move_uploaded_file($_FILES['imagen']['tmp_name'],"img/".$_FILES['imagen']['name']);
+      move_uploaded_file($_FILES['imagen']['tmp_name'],"img/bandas/".$_FILES['imagen']['name']);
     }
   }
 ?>
@@ -30,14 +37,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif|Poppins" >
   </head>
   <body style="background-color:black;">
-    <?php include_once ("components/navbar-admin.php") ?>
-
     <?php
       if(isset ($_GET['msg']))
       {
         echo $_GET['msg'];
       }
     ?>
+    <?php include_once ("components/navbar-admin.php") ?>
 
     <div class="container">
       <div class="row">
