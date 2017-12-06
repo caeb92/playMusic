@@ -11,6 +11,39 @@ function RevisarFormulario()
     }
 }
 
+function CambioPW() // Control de Cambio de contraseña en el perfil de usuario
+{
+    if(frmCambioPW.pwNew1.value != frmCambioPW.pwNew2.value)
+    {
+      document.getElementById('errorPW').style.display="block";
+      document.getElementById('errorPW').innerHTML="Las contraseñas no coinciden !!";
+      document.getElementById('okPW').style.display="none";
+      return false;
+    }
+    if(frmCambioPW.pwNew1.value === frmCambioPW.pwNew2.value)
+    {
+      document.getElementById('okPW').style.display="block";
+      document.getElementById('okPW').innerHTML="Las contraseñas coinciden !!";
+      document.getElementById('errorPW').style.display="none";
+    }
+}
+function CambioPWVacios() // Control de Cambio de contraseña en el perfil de usuario
+{
+  // VALIDA CAMPOS VACIOS
+  if(frmCambioPW.pwNew1.value.length === 0)
+  {
+    alert("Ingresa tu contraseña");
+    pwNew1.focus();
+    return false;
+  }
+  if(frmCambioPW.pwNew2.value.length === 0)
+  {
+    alert("Ingresa tu contraseña de confirmacion");
+    pwNew2.focus();
+    return false;
+  }
+}
+
 
 function RevisarArtista()
 {

@@ -11,14 +11,13 @@
    // CAMBIAR CONTRASEÑA
    if( isset($_POST['submit']) )
    {
-     $password_ui = $_POST['password_ui'];
+     $pwNew1 = $_POST['pwNew1'];
      $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
      if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
 
-     $sql = "UPDATE USUARIO SET password = '$password_ui' WHERE user = '$nombre_usuario' ";
+     $sql = "UPDATE USUARIO SET password = '$pwNew1' WHERE user = '$nombre_usuario' ";
      $agregar = $mysqli->query($sql);
    }
-   // FIN CAMBIAR CONTRASEÑA
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,23 +97,24 @@
             </button>
           </div>
           <div class="modal-body">
-            <form name="frm" action="perfil.php" method="POST">
+            <form name="frmCambioPW" action="perfil.php" method="POST" onSubmit="return CambioPWVacios()">
 
               <div class="form-group">
-                <label for="password_ui_actual">Escribe tu contraseña Actual</label>
-                <input type="password" class="form-control"  id="password_ui_actual" name="password_ui_actual" placeholder="Escribe tu contraseña Actual">
+                <label for="pwNew1">Nueva Contraseña</label>
+                <input type="password" class="form-control"  id="pwNew1" name="pwNew1" placeholder="Nueva Contraseña" onkeyup="return CambioPW()">
               </div>
               <div class="form-group">
-                <label for="password_ui">Nueva Contraseña</label>
-                <input type="password" class="form-control"  id="password_ui" name="password_ui" placeholder="Nueva Contraseña"  onblur="RevisarPW()">
+                <label for="pwNew2">Confirma tu Contraseña</label>
+                <input type="password" class="form-control" id="pwNew2" name="pwNew2" placeholder="Confirma tu Contraseña" onkeyup="return CambioPW()">
               </div>
-              <div class="form-group">
-                <label for="password_ui_2">Confirma tu Contraseña</label>
-                <input type="password" class="form-control" id="password_ui_2" name="password_ui_2" placeholder="Confirma tu Contraseña" onblur="RevisarPW()">
-              </div>
-              <div id="error" class="alert alert-danger" role="alert"></div>
+
+              <div id="errorPW" class="alert alert-danger" role="alert" style="display:none;"></div>
+              <div id="okPW" class="alert alert-success" role="alert" style="display:none;"></div>
+
               <div class="pull-right buttons-modal">
                 <button type="submit" name="submit" class="btn btn-outline-warning">Aceptar</button>
+                <input type="reset" name="btnBorrar" class="btn btn-outline-warning" value="Borrar"  />
+
               </div>
             </form>
           </div>
