@@ -39,11 +39,10 @@
         <div class="mx-auto text-center">
           <img class="rounded-circle mx-auto" src="build/img/user.png" alt="Foto de Usuario">
         </div>
-        <form name="frmInicioSesion" action="valida.php" method="POST"><!-- ../php/DATA-->
-          <div id="error" class="alert alert-danger" role="alert"></div>
+        <form name="frmInicioSesion" action="valida.php" method="POST" onSubmit="return InicioSesion()">
           <div class="form-group">
             <label for="user_ui">Usuario</label>
-            <input type="text" class="form-control"  id="user_ui" name="user_ui" placeholder="Escribe tu Usuario"  onblur="return RevisarFormulario();">
+            <input type="text" class="form-control"  id="user_ui" name="user_ui" placeholder="Escribe tu Usuario">
           </div>
           <div class="form-group">
             <label for="password_ui">Contraseña</label>
@@ -52,7 +51,7 @@
 
           <a href="registro.php">Crear una nueva Cuenta</a>
 
-          <div class="pull-right buttons-modal">
+          <div class="pull-right buttons-modal" >
             <button type="submit" name="submit" class="btn btn-outline-warning">Aceptar</button>
           </div>
         </form>

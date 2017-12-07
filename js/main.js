@@ -1,13 +1,16 @@
-function RevisarFormulario()
+function InicioSesion()
 {
     if(frmInicioSesion.user_ui.value.length === 0)
     {
-      document.getElementById('error').style.display="block";
-      document.getElementById('error').innerHTML="Debes ingresar tu Usuario !!";
+      alert("Ingresa tu Usuario")
+      user_ui.focus();
+      return false;
     }
-    else
+    if(frmInicioSesion.password_ui.value.length === 0)
     {
-      document.getElementById('error').style.display="none";
+      alert("Ingresa tu Contraseña")
+      password_ui.focus();
+      return false;
     }
 }
 
@@ -18,6 +21,16 @@ function CambioPW() // Control de Cambio de contraseña en el perfil de usuario
       document.getElementById('errorPW').style.display="block";
       document.getElementById('errorPW').innerHTML="Las contraseñas no coinciden !!";
       document.getElementById('okPW').style.display="none";
+      return false;
+    }
+    if(frmCambioPW.pwNew1.value.length === 0)
+    {
+      alert("Ingresa la contraseña");
+      return false;
+    }
+    if(frmCambioPW.pwNew2.value.length === 0)
+    {
+      alert("Valida la contraseña");
       return false;
     }
     if(frmCambioPW.pwNew1.value === frmCambioPW.pwNew2.value)
