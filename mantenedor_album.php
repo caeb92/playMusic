@@ -26,6 +26,19 @@
       move_uploaded_file($_FILES['imagen']['tmp_name'],"img/caratulas/".$_FILES['imagen']['name']);
     }
   }
+  // Borrar Artista
+  if( isset($_POST['btn-borrar']) )
+  {
+    $cod_album = $_POST['cod_album'];
+
+    $sqlA = "DELETE FROM CANCION WHERE COD_DISCO = '$cod_album' ";
+    $agregar = $mysqli->query($sqlA);
+
+    $sqlB = "DELETE FROM DISCO WHERE COD_DISCO = '$cod_album' ";
+    $agregar = $mysqli->query($sqlB);
+
+
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -75,7 +88,8 @@
           </form>
         </div>
 
-        <div class="col-md-6 text-center">
+        <div class="col-md-6">
+          <h4>Bandas</h4>
           <table class="table table-striped">
             <tr>
                <th> Codigo </th>
@@ -97,8 +111,49 @@
           </table>
         </div>
       </div>
-    </div>
 
+      <br>
+      <div class="row">
+        <div class="col-md-6 TARJETA-FRM">
+          <form name="FRMEliminarAlbum" action="mantenedor_album.php" method="POST" onSubmit="return EliminarAlbum();">
+            <div class="form-group">
+              <label class="label" for="cod_album">Eliminar Album</label> <br>
+              <input type="number" class="form-control" id="cod_album" name="cod_album">
+            </div>
+            <button type="submit" name="btn-borrar" class="btn btn-outline-danger pull-right">Eliminar</button>
+            <br><br>
+          </form>
+        </div>
+        <br>
+        <div class="col-md-6">
+          <h4>Discos</h4>
+          <table class="table table-striped">
+            <tr>
+               <th> Código Disco </th>
+               <th> Nombre Disco </th>
+            </tr>
+            <?php
+              $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
+              if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
+
+              $sql = " SELECT * FROM DISCO";
+              $resultado = $mysqli->query($sql);
+              while ( $registro = $resultado->fetch_array() )
+               {
+            ?>
+            <tr>
+              <th> <?php echo $registro['COD_DISCO']; ?>  </th>
+               <th> <?php echo $registro['NOMBRE_DISCO']; ?>  </th>
+            </tr>
+            <?php
+               }
+            ?>
+          </table>
+        </div>
+      </div>
+
+    </div>
+    <br>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

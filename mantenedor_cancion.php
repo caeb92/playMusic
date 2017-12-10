@@ -26,6 +26,15 @@
       move_uploaded_file($_FILES['imagen']['tmp_name'],"audio/".$_FILES['imagen']['name']);
     }
   }
+  // Borrar CANCION
+  if( isset($_POST['btn-borrar']) )
+  {
+    $cod_cancion = $_POST['cod_cancion'];
+
+    $sql = "DELETE FROM CANCION WHERE COD_CANCION = '$cod_cancion' ";
+    $agregar = $mysqli->query($sql);
+  }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,7 +92,7 @@
                <th> Nombre Disco </th>
             </tr>
             <?php
-              $sql2 = "CALL SP_info_discos_bandas";
+              $sql2 = "CALL SP_ARTISTA_DISCO";
               $resultado = $mysqli->query($sql2);
               while ( $registro = $resultado->fetch_array() )
                {
@@ -99,9 +108,53 @@
           </table>
         </div>
       </div>
-    </div>
+
+      <br>
+
+      <div class="row">
+        
+        <div class="col-md-6 TARJETA-FRM">
+          <form name="FRMEliminarCancion" action="mantenedor_cancion.php" method="POST" onSubmit="return Eliminar();">
+            <div class="form-group">
+              <label class="label" for="cod_cancion">Eliminar Canción</label> <br>
+              <input type="number" class="form-control" id="cod_cancion" name="cod_cancion">
+            </div>
+            <button type="submit" name="btn-borrar" class="btn btn-outline-danger pull-right">Eliminar</button>
+            <br><br>
+          </form>
+        </div>
+
+        <div class="col-md-6">
+          <table class="table table-striped">
+            <tr>
+               <th> Código Canción </th>
+               <th> Nombre Canción </th>
+            </tr>
+            <?php
+              $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
+              if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
+
+              $sql = " SELECT * FROM CANCION";
+              $resultado = $mysqli->query($sql);
+              while ( $registro = $resultado->fetch_array() )
+               {
+            ?>
+            <tr>
+              <th> <?php echo $registro['COD_CANCION']; ?>  </th>
+               <th> <?php echo $registro['NOMBRE_CANCION']; ?>  </th>
+            </tr>
+            <?php
+               }
+            ?>
+          </table>
+        </div>
+      </div>
 
 
+    </div> <!-- FIN DIV CONTAINER PRINCIPAL-->
+
+
+    <br><br>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="js/minify/bootstrap.min.js" type="text/javascript"></script>

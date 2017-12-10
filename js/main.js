@@ -155,3 +155,58 @@ function RevisarCrearCuenta(){
     return false;
   }
 }
+function RevisarCancion(){
+  // Validar campos vacios
+  if(frmMantCancion.nombre_cancion.value.length === 0)
+  {
+    alert("Ingresa el nombre de la cancion");
+    nombre_cancion.focus();
+    return false;
+  }
+  if(frmMantCancion.cod_disco.value.length === 0)
+  {
+    alert("Ingresa el codigo del disco");
+    cod_disco.focus();
+    return false;
+  }
+  if(frmMantCancion.imagen.files.length === 0)
+  {
+    alert("Selecciona el archivo MP3");
+    imagen.focus();
+    return false;
+  }
+}
+function Eliminar(){
+  // Validar campos vacios
+  if(FRMEliminarCancion.cod_cancion.value.length === 0)
+  {
+    alert("Ingresa el codigo de la cancion a eliminar");
+    cod_cancion.focus();
+    return false;
+  }
+  if(FRMEliminarArtista.cod_artista.value.length === 0)
+  {
+    alert("Ingresa el codigo de la cancion a eliminar");
+    cod_artista.focus();
+    return false;
+  }
+}
+function EliminarArtista(){
+  // Validar campos vacios
+  if(FRMEliminarArtista.cod_artista.value.length === 0)
+  {
+    alert("Ingresa el codigo del artista a eliminar");
+    cod_artista.focus();
+    return false;
+  }
+}
+
+function EliminarAlbum(){
+  // Validar campos vacios
+  if(FRMEliminarAlbum.cod_album.value.length === 0)
+  {
+    alert("Ingresa el codigo del Album a eliminar");
+    cod_album.focus();
+    return false;
+  }
+}

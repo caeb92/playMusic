@@ -26,6 +26,17 @@
       move_uploaded_file($_FILES['imagen']['tmp_name'],"img/bandas/".$_FILES['imagen']['name']);
     }
   }
+  // Borrar Artista y Discos
+  if( isset($_POST['btn-borrar']) )
+  {
+    $cod_artista = $_POST['cod_artista'];
+
+    $sqlA = "DELETE FROM DISCO WHERE COD_ARTISTA = '$cod_artista' ";
+    $agregar = $mysqli->query($sqlA);
+
+    $sqlB = "DELETE FROM ARTISTA WHERE COD_ARTISTA = '$cod_artista' ";
+    $agregar = $mysqli->query($sqlB);
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +50,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif|Poppins" >
   </head>
-  <body style="background-color:black;">
+  <body>
     <?php
       if(isset ($_GET['msg']))
       {
@@ -76,10 +87,50 @@
         </div>
 
         <div class="col-md-6 text-center">
-          <img src="img/srv.jpeg" alt="Foto Artista">
+          <table class="table table-striped">
+            <tr>
+               <th> Código Artista </th>
+               <th> Nombre Artista </th>
+            </tr>
+            <?php
+              $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
+              if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
+
+              $sql = " SELECT * FROM ARTISTA";
+              $resultado = $mysqli->query($sql);
+              while ( $registro = $resultado->fetch_array() )
+               {
+            ?>
+            <tr>
+              <th> <?php echo $registro['COD_ARTISTA']; ?>  </th>
+               <th> <?php echo $registro['NOMBRE_AR']; ?>  </th>
+            </tr>
+            <?php
+               }
+            ?>
+          </table>
+        </div>
+      </div><!-- FIN ROW 1 -->
+
+      <br>
+      <div class="row">
+        <div class="col-md-6 TARJETA-FRM">
+          <form name="FRMEliminarArtista" action="mantenedor_artista.php" method="POST" onSubmit="return EliminarArtista();">
+            <div class="form-group">
+              <label class="label" for="cod_artista">Eliminar Artista</label> <br>
+              <input type="number" class="form-control" id="cod_artista" name="cod_artista">
+            </div>
+            <button type="submit" name="btn-borrar" class="btn btn-outline-danger pull-right">Eliminar</button>
+            <br><br>
+          </form>
+        </div>
+        <br>
+        <div class="col-md-6">
+
         </div>
       </div>
-    </div>
+
+    </div><!-- DIV CONTAINER PRINCIPAL -->
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

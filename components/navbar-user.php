@@ -10,9 +10,6 @@
       <li class="nav-item">
         <a class="nav-link" href="perfil.php">Mi Perfil</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="musica.php">Musica</a>
-      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 pull-right">
       <ul class="navbar-nav flex-row mr-lg-0">
