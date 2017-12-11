@@ -84,23 +84,26 @@
           </form>
         </div>
 
-        <div class="col-md-6 text-center">
+        <div class="col-md-6">
+          <h4>Discos</h4>
+          <hr>
           <table class="table table-striped">
             <tr>
-               <th> Nombre Banda </th>
-               <th> Codigo Disco </th>
+               <th> Código Disco </th>
                <th> Nombre Disco </th>
             </tr>
             <?php
-              $sql2 = "CALL SP_ARTISTA_DISCO";
-              $resultado = $mysqli->query($sql2);
+              $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
+              if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
+
+              $sql = " SELECT * FROM DISCO";
+              $resultado = $mysqli->query($sql);
               while ( $registro = $resultado->fetch_array() )
                {
             ?>
             <tr>
-              <th> <?php echo $registro['nombre_ar']; ?>  </th>
-               <th> <?php echo $registro['cod_disco']; ?>  </th>
-               <th> <?php echo $registro['nombre_disco']; ?> </th>
+              <th> <?php echo $registro['COD_DISCO']; ?>  </th>
+               <th> <?php echo $registro['NOMBRE_DISCO']; ?>  </th>
             </tr>
             <?php
                }
@@ -112,7 +115,7 @@
       <br>
 
       <div class="row">
-        
+
         <div class="col-md-6 TARJETA-FRM">
           <form name="FRMEliminarCancion" action="mantenedor_cancion.php" method="POST" onSubmit="return Eliminar();">
             <div class="form-group">
@@ -125,23 +128,23 @@
         </div>
 
         <div class="col-md-6">
+          <h4>Canciones</h4>
           <table class="table table-striped">
             <tr>
-               <th> Código Canción </th>
+               <th> Nombre Banda </th>
+               <th> Codigo Canción </th>
                <th> Nombre Canción </th>
             </tr>
             <?php
-              $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
-              if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
-
-              $sql = " SELECT * FROM CANCION";
-              $resultado = $mysqli->query($sql);
+              $sql2 = "CALL SP_info_discos_bandas";
+              $resultado = $mysqli->query($sql2);
               while ( $registro = $resultado->fetch_array() )
                {
             ?>
             <tr>
-              <th> <?php echo $registro['COD_CANCION']; ?>  </th>
-               <th> <?php echo $registro['NOMBRE_CANCION']; ?>  </th>
+              <th> <?php echo $registro['NOMBRE_AR']; ?>  </th>
+               <th> <?php echo $registro['COD_CANCION']; ?>  </th>
+               <th> <?php echo $registro['NOMBRE_CANCION']; ?> </th>
             </tr>
             <?php
                }

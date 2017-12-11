@@ -62,7 +62,7 @@
               <input type="password" class="form-control" id="password_ui_2" name="password_ui_2" placeholder="Repite tu Contraseña" onkeyup="RevisarPW()">
             </div>
 
-            <div id="errorPW" class="alert alert-danger" role="alert"></div>
+            <div style="display:none;" id="errorPW" class="alert alert-danger" role="alert"></div>
 
             <div class="form-group">
               <label for="nombre_ui">Ingresa tu nombre completo</label>

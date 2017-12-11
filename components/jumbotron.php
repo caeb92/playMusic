@@ -6,7 +6,7 @@
       <hr class="my-4">
       <p class="animated fadeIn"> It uses utility classes for typography and spacing to space content out within the larger container.</p>
       <p class="lead animated fadeIn">
-        <a class="btn btn-outline-primary btn-lg" href="#" role="button">Learn more</a>
+        <a class="btn btn-outline-primary btn-lg" href="registro.php" role="button">Registrate !</a>
       </p>
     </div>
     <div class="col-md-6 col-lg-6 mx-auto text-center">

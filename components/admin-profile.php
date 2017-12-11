@@ -20,16 +20,16 @@
 <h5>Discos que has agregado</h5>
 <div class="card-deck">
   <?php
-     $sql2 = " CALL SP_ARTISTA_DISCO ";
+     $sql2 = " CALL SP_DISCOS ";
      $resultado = $mysqli->query($sql2);
      while ( $registro = $resultado->fetch_array() )
      {
   ?>
   <div class="card">
-    <img class="card-img-top" src="img/caratulas/<?php echo $registro['caratula_disco']; ?>">
+    <img class="card-img-top" src="img/caratulas/<?php echo $registro['CARATULA_DISCO']; ?>">
     <div class="card-body">
-      <h4 class="card-title"> <?php echo $registro['nombre_ar']; ?> </h4>
-      <p class="card-text"> <?php echo $registro['nombre_disco']; ?> </p>
+      <h4 class="card-title"> <?php echo $registro['NOMBRE_AR']; ?> </h4>
+      <p class="card-text"> <?php echo $registro['NOMBRE_DISCO']; ?> </p>
     </div>
   </div>
   <?php
@@ -38,31 +38,33 @@
 </div> <!-- Fin del card-deck -->
 
 <h5>Canciones que has agregado</h5>
-<table class="table table-hover">
+<table class="table">
   <tr>
-     <th> Artista </th>
-     <th> Disco </th>
-     <th> Canción </th>
-     <th> </th>
+    <th> <!-- Imagen Disco --> </th>
+    <th> CANCIÓN </th>
+    <th> ARTISTA </th>
+    <th> DISCO </th>
+    <th> <!-- Reproductor --> </th>
   </tr>
   <?php
      $mysqli = new MYSQLI('localhost','caeb','milo123..','playmusic');
      if(!$mysqli) { die("Error en la conexión".$mysqli->errno);}
 
-     $sql3 = " CALL SP_info_discos_bandas ";
+     $sql3 = " CALL SP_REPRODUCTOR ";
      $resultado3 = $mysqli->query($sql3);
-     while ( $registro3 = $resultado3->fetch_array() )
+     while ( $registro = $resultado3->fetch_array() )
      {
   ?>
   <tr>
-     <th> <?php echo $registro3['nombre_ar']; ?>  </th>
-     <th> <?php echo $registro3['nombre_disco']; ?> </th>
-     <th> <?php echo $registro3['nombre_cancion']; ?> </th>
-     <th>
-       <audio controls="controls" id="audio_player">
-         <source src="audio/<?php echo $registro3['ruta_cancion']; ?>" type="audio/mp3" />
-       </audio>
-     </th>
+    <th> <img style="height: 38px; border-radius: 0px;" src="img/caratulas/<?php echo $registro['CARATULA_DISCO']; ?> "> </th>
+    <th> <?php echo $registro['NOMBRE_CANCION']; ?> </th>
+    <th> <?php echo $registro['NOMBRE_AR']; ?> </th>
+    <th> <?php echo $registro['NOMBRE_DISCO']; ?> </th>
+    <th>
+      <audio controls="controls" id="audio_player">
+        <source src="audio/<?php echo $registro['RUTA_CANCION']; ?>" type="audio/mp3" />
+      </audio>
+    </th>
   </tr>
   <?php
      }

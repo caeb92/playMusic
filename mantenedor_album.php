@@ -74,7 +74,7 @@
             </div>
 
             <div class="form-group">
-              <label for="cod_artista">Codigo del artista</label>
+              <label for="cod_artista">Codigo de la banda</label>
               <input type="number" class="form-control" id="cod_artista" name="cod_artista">
             </div>
 
@@ -117,7 +117,7 @@
         <div class="col-md-6 TARJETA-FRM">
           <form name="FRMEliminarAlbum" action="mantenedor_album.php" method="POST" onSubmit="return EliminarAlbum();">
             <div class="form-group">
-              <label class="label" for="cod_album">Eliminar Album</label> <br>
+              <label class="label" for="cod_album">Eliminar Disco</label> <br>
               <input type="number" class="form-control" id="cod_album" name="cod_album">
             </div>
             <button type="submit" name="btn-borrar" class="btn btn-outline-danger pull-right">Eliminar</button>
